@@ -2,4 +2,335 @@
 
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  display: grid;
+  align-items: center;
+  background-image: var(--header-bg-image);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: var(--main-font, IBM Plex Mono, sans-serif);
+  font-size: var(--main-font-size, 18px);
+  color: var(--main-text-color, #f1b2ce);
+  background-color: var(--bg-color, #000028);
+  line-height: 23.4px; /* 130% */
+}
+
+.header {
+  min-block-size: 100vh;
+  padding: var(--padding, 10px);
+  display: grid;
+  grid-template-rows: 1fr min-content 1fr;
+  align-items: center;
+}
+
+.title-style {
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-weight: 700;
+  line-height: 82.5%; /* 95.7px */
+  text-shadow: 4px 4px 0px var(--accent-color, #ff0070);
+  color: var(--main-title-text-color, #db00ff);
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 10px;
+  color: var(--decor-color, #ff0070);
+}
+
+.header__theme-menu-button {
+  display: flex;
+  align-items: center;
+  height: 26px;
+  padding: 0px 13px;
+  border: none;
+  background-color: transparent;
+  text-transform: lowercase;
+  line-height: 18px; /* 100% */
+}
+
+.header__theme-menu-button_active {
+  pointer-events: none;
+  outline: 1px solid var(--decor-color, #ff0070);
+}
+
+.header__theme-menu-button:hover {
+  outline: 1px solid var(--btn-hover-color, rgba(255, 0, 112, 0.4));
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-bottom: 1px solid var(--decor-color, #ff0070);
+}
+
+.header__decoration__rec {
+  position: absolute;
+  top: 10px;
+  right: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--accent-color, #ff0070);
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 25px; /* 138.889% */
+}
+
+.header__decoration__rec::after {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: var(--accent-color, #ff0070);
+  filter: drop-shadow(0px 0px 4px var(--accent-color, #ff0070));
+}
+
+.decorated-zone {
+  position: relative;
+}
+
+.decorated-zone::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 25px;
+  height: 25px;
+  border-top: 1px solid var(--decor-color, #ff0070);
+  border-right: 1px solid var(--decor-color, #ff0070);
+}
+
+.decorated-zone::after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  width: 25px;
+  height: 25px;
+  border-bottom: 1px solid var(--decor-color, #ff0070);
+  border-left: 1px solid var(--decor-color, #ff0070);
+}
+
+.title-decor {
+  background-color: var(--accent-color, #ff0070);
+  color: var(--subtitle-color, #000028);
+  font-weight: 700;
+  font-family: var(--main-font, IBM Plex Mono, sans-serif);
+  font-size: var(--main-font-size, 18px);
+}
+
+.content {
+  display: grid;
+  gap: 50px;
+  padding: 0 var(--padding, 10px);
+  margin-block-start: 40px;
+  margin-block-end: 40px;
+}
+
+.section {
+  display: grid;
+  gap: 20px;
+}
+
+.section__card {
+  display: grid;
+  gap: 10px;
+}
+
+.section__reasons-card-set {
+  display: grid;
+  gap: 20px;
+}
+
+.section__title {
+  font-family: var(--main-font, IBM Plex Mono, sans-serif);
+  font-size: var(--main-font-size, 18px);
+  font-weight: 700;
+  line-height: 23.4px; /* 130% */
+  color: var(--decor-color, #ff0070);
+}
+
+.title-normal-font-weight {
+  font-weight: 400;
+}
+
+.paragraph-link {
+  text-shadow: 2px 2px 0px var(--accent-color, #ff0070);
+  text-decoration: none;
+}
+
+.paragraph-link:hover {
+  border-bottom: 1px solid var(--main-text-color, #f1b2ce);
+}
+
+.paragraph-link:focus {
+  outline: none;
+}
+
+.paragraph-link:focus-visible {
+  outline: 1px solid var(--main-text-color, #f1b2ce);
+}
+
+.gallery {
+  display: grid;
+  gap: 10px;
+}
+
+.gallery__set {
+  display: grid;
+  gap: 10px;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.footer {
+  min-block-size: 100vh;
+  padding: var(--padding, 10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 2px 2px 0px var(--accent-color, #ff0070);
+}
+
+/*ПЛАНШЕТ*/
+
+@media (min-width: 768px) {
+  .header {
+    justify-items: end;
+    padding: var(--padding-middle, 20px);
+  }
+
+  .header__decoration__rec {
+    top: 20px;
+    right: 28px;
+  }
+
+  .decorated-zone::before {
+    top: 20px;
+    right: 20px;
+  }
+
+  .decorated-zone::after {
+    bottom: 20px;
+    left: 20px;
+  }
+
+  .header__title {
+    margin-inline-start: -20px;
+    justify-self: start;
+  }
+
+  .title-style {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .header__description-text {
+    width: 50%;
+  }
+
+  .content {
+    padding: 0 var(--padding-middle, 20px);
+    gap: 80px;
+    margin-block-start: 60px;
+    margin-block-end: 60px;
+  }
+
+  .section__why-difficult,
+  .section__how-to-concentrate {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .section__why-difficult .section__card {
+    grid-column-start: 2;
+    grid-column-end: 3;
+  }
+
+  .section__how-to-concentrate .section__card {
+    grid-column-start: 2;
+    grid-column-end: 3;
+  }
+
+  .section__how-to-concentrate .section__title {
+    max-height: 23px;
+  }
+
+  .section__reasons .section__title {
+    width: 30%;
+  }
+
+  .gallery {
+    gap: 20px;
+  }
+
+  .gallery__set {
+    display: grid;
+    gap: 20px;
+    grid-template-areas:
+      "sunset sunset ice-cream"
+      "tape books ice-cream"
+      "tape street street";
+  }
+
+  img:first-of-type {
+    grid-area: sunset;
+  }
+
+  img:nth-of-type(2) {
+    grid-area: ice-cream;
+  }
+
+  img:nth-of-type(3) {
+    grid-area: tape;
+  }
+
+  img:nth-of-type(4) {
+    grid-area: books;
+  }
+
+  img:last-of-type {
+    grid-area: street;
+  }
+
+  img {
+    height: 100%;
+  }
+
+  .footer {
+    padding: var(--padding-middle, 20px);
+  }
+}
+
+/*ДЕСКТОП*/
+
+@media (min-width: 1024px) {
+  .header__theme-menu {
+    justify-self: center;
+    align-self: start;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: row;
+  }
+
+  .section__why-difficult,
+  .section__how-to-concentrate {
+    grid-template-columns: 1fr 2.06fr; /* 649(ширина второй колонки) / 315(ширина первой колонки)=2.06 */
+  }
+
+  .section__reasons-card-set {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .section__reasons-card-set .section__card {
+    grid-template-rows: 23px auto;
+  }
 }
